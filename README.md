@@ -1,3 +1,31 @@
+# docker-swarm-traefik-prometheus-grafana-slack
+
+# 🚀 A Docker Swarm Stack for monitoring Traefik with Promethues and Grafana 🚀
+
+https://github.com/coding-to-music/docker-swarm-traefik-prometheus-grafana-slack
+
+From / By Brian Christner https://github.com/vegasbrianc
+
+https://github.com/vegasbrianc/docker-traefik-prometheus
+
+## Environment variables:
+
+```java
+
+```
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/docker-swarm-traefik-prometheus-grafana-slack.git
+git push -u origin main
+```
+
 # Monitor Traefik with Prometheus
 
 This Repo helps you get started with monitoring [Traefik v2.0](https://traefik.io/)the amazing Reverse Proxy + so much more. Along with Traefik we will provision Prometheus for Time Series Data collection and Grafana for Visualization. Traefik will also act as a proxy in front of Promethues and Grafana while Prometheus monitors Traefik the other way. Cool, huh?
@@ -10,13 +38,14 @@ The presentation and Video from this demo is also included in the Repo - [56k_Cl
 
 # Goals of the Traefik Monitoring Repo:
 
-* Provision a Traefik Stack with Prometheus metrics enabled
-* Deploy Prometheus & Grafana
-* Verify Traefik Metrics
-* Configure Dashboards in Grafana for Traefik
+- Provision a Traefik Stack with Prometheus metrics enabled
+- Deploy Prometheus & Grafana
+- Verify Traefik Metrics
+- Configure Dashboards in Grafana for Traefik
 
 ## Review the Traefik Monitoring Stack Deployment
-In this section we will prepare and deploy our Traefik Reverse Proxy and our monitoring stack. 
+
+In this section we will prepare and deploy our Traefik Reverse Proxy and our monitoring stack.
 
 First, we need to clone this Repo to your Docker Swarm. Ensure you are performing this on your Manager node. If you only have one node then this is also the manager.
 
@@ -65,29 +94,30 @@ Grafana and Prometheus are being deployed by Docker Swarm and the networking is 
 Prometheus is also configured to monitor Traefik. This is configured in [Prometheus.yml](https://github.com/vegasbrianc/docker-traefik-prometheus/blob/master/prometheus/prometheus.yml#L40) which enables Prometheus to auto-discover Traefik inside of Docker Swarm. Prometheus is watching for the Service Task `tasks.traefik` on port 8080. Once the service is online metrics will begin flowing to Prometheus.
 
 ## Deploy Traefik, Prometheus, and Grafana
+
 OK, we now know where everything is configured inside of the stack. The moment of truth `DEPLOY`
 
 In the `docker-traefik-prometheus`directory run the following:
 
     docker stack deploy -c docker-compose.yml traefik
 
-Verify all the services have been provisioned. The Replica count for each service should be 1/1 
+Verify all the services have been provisioned. The Replica count for each service should be 1/1
 **Note this can take a couple minutes**
 
     docker service ls
-    
+
 ## Check the Metrics
+
 Once all the services are up we can open the Traefik Dashboard. The dashboard should show us our frontend and backends configured for both Grafana and Prometheus.
 
     http://docker.localhost:8080/
-
 
 Take a look at the metrics which Traefik is now producing in Prometheus metrics format
 
     http://localhost:8080/metrics
 
-
 ## Login to Grafana and Visualize Metrics
+
 Grafana is an Open Source visualization tool for the metrics collected with Prometheus. Next, open Grafana to view the Traefik Dashboards.
 **Note: Firefox doesn't properly work with the below URLS please use Chrome**
 
@@ -101,6 +131,7 @@ Open the Traefik Dashboard and select the different backends available
 **Note: Upper right-hand corner of Grafana switch the default 1 hour time range down to 5 minutes. Refresh a couple times and you should see data start flowing**
 
 ## Deploy a new webservice
+
 Of course we couldn't do a demo without showing some Cat Gifs. This demo launches a random cat picture of the day served by three instances of the Cats Services.
 
     docker stack deploy -c cats.yml cats

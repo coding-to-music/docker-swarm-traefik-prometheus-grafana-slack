@@ -1,0 +1,21 @@
+{
+  "name": "docker-swarm-traefik-prometheus-grafana-slack",
+  "version": "1.0.0",
+  "description": "This Repo helps you get started with monitoring [Traefik v2.0](https://traefik.io/)the amazing Reverse Proxy + so much more. Along with Traefik we will provision Prometheus for Time Series Data collection and Grafana for Visualization. Traefik will also act as a proxy in front of Promethues and Grafana while Prometheus monitors Traefik the other way. Cool, huh?",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "git add . && git commit -m Build && git push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vegasbrianc/docker-traefik-prometheus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vegasbrianc/docker-traefik-prometheus/issues"
+  },
+  "homepage": "https://github.com/vegasbrianc/docker-traefik-prometheus#readme"
+}
