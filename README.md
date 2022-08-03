@@ -26,6 +26,23 @@ git remote add origin git@github.com:coding-to-music/docker-swarm-traefik-promet
 git push -u origin main
 ```
 
+## Results
+
+```
+[+] Running 5/5
+ ⠿ traefik Pulled
+[+] Running 7/6
+ ⠿ Network traefik                                                         Created                                                        0.0s
+ ⠿ Network inbound                                                         Created                                                        0.0s
+ ⠿ Volume "docker-swarm-traefik-prometheus-grafana-slack-prometheus_data"  Created                                                        0.0s
+ ⠿ Volume "docker-swarm-traefik-prometheus-grafana-slack-grafana_data"     Created                                                        0.0s
+ ⠿ Container docker-swarm-traefik-prometheus-grafana-slack-prometheus-1    Created                                                        0.1s
+ ⠿ Container docker-swarm-traefik-prometheus-grafana-slack-traefik-1       Created                                                        0.1s
+ ⠿ Container docker-swarm-traefik-prometheus-grafana-slack-grafana-1       Created                                                        0.1s
+Attaching to docker-swarm-traefik-prometheus-grafana-slack-grafana-1, docker-swarm-traefik-prometheus-grafana-slack-prometheus-1, docker-swarm-traefik-prometheus-grafana-slack-traefik-1
+Error response from daemon: Could not attach to network inbound: rpc error: code = PermissionDenied desc = network inbound not manually attachable
+```
+
 # Monitor Traefik with Prometheus
 
 This Repo helps you get started with monitoring [Traefik v2.0](https://traefik.io/)the amazing Reverse Proxy + so much more. Along with Traefik we will provision Prometheus for Time Series Data collection and Grafana for Visualization. Traefik will also act as a proxy in front of Promethues and Grafana while Prometheus monitors Traefik the other way. Cool, huh?
